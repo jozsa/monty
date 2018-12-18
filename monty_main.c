@@ -1,7 +1,5 @@
 #include "monty.h"
 
-extern unsigned int line_number;
-
 int main(int argc, char **argv)
 {
 	FILE *fd;
@@ -9,7 +7,7 @@ int main(int argc, char **argv)
 	char *tokens[2];
 	size_t len;
 	int char_count;
-	stack_t *head = NULL;
+/*	stack_t *head = NULL; */
 
 	if (argc != 2)
 	{
@@ -24,13 +22,18 @@ int main(int argc, char **argv)
 	}
 	while ((char_count = getline(&line, &len, fd)) != -1)
 	{
+		line[char_count - 1] = '\0';
 		tokens[0] = strtok(line, " ");
-		tokens[1] = strtok(NULL, " ");
-		fn_finder(*head, tokens[0]);
-		if (!head->n)
+		printf("%s\n", tokens[0]);
+		if (tokens[1])
+		{
+			tokens[1] = strtok(NULL, " ");
+			printf("%s\n", tokens[1]);
+		}
+/*		fn_finder(*head, tokens[0]); */
+	/*	if (!head->n)
 			head->n = atoi(tokens[1]);
-		line_number++;
-		free(line);
+		line_number++; */
 	}
 	return (EXIT_SUCCESS);
 }
