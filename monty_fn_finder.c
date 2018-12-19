@@ -1,10 +1,9 @@
 #include "monty.h"
 
 /**
- *
- *
- *
- *
+ * fn_finder - compares token to fn list, performs operation
+ * @opcode: token to be read as opcode
+ * @line_number: line number
  */
 
 void fn_finder(char *opcode, unsigned int line_number)
@@ -19,13 +18,13 @@ void fn_finder(char *opcode, unsigned int line_number)
 		{"add", m_add},
 		{"nop", m_nop},
 		{NULL, NULL}
-	}
+	};
 
 	for (i = 0; i < (sizeof(ops) / sizeof(instruction_t *)); i++)
 	{
-		if (ops[i].f == NULL)
-			break;
+		if (ops[i].opcode == NULL)
+			instruction_error(opcode, line_number);
 		if (strcmp(opcode, ops[i].opcode) == 0)
-			return (ops[i].f(head, line_number));
+			ops[i].f(&stack, line_number);
 	}
 }
