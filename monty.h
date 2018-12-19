@@ -1,3 +1,6 @@
+#ifndef __MONTY_H__
+#define __MONTY_H__
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -34,8 +37,24 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line_number); /* fake push function, update when actual push function is created */
 void arg_error(void);
 void fileopen_error(char *filename);
 void instruction_error(char *opcode, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
+void alloc_error(void);
+void sts_error(unsigned int line_number, char *opcode);
+void pop_error(unsigned int line_number);
+void pint_error(unsigned int line_number);
+void push_error(unsigned int line_number);
+void m_pall(stack_t **stack, unsigned int line_number);
+void m_push(stack_t **stack, unsigned int line_number);
+void m_pint(stack_t **stack, unsigned int line_number);
+void m_pop(stack_t **stack, unsigned int line_number);
+void m_swap(stack_t **stack, unsigned int line_number);
+void m_add(stack_t **stack, unsigned int line_number);
+void m_nop(stack_t **stack, unsigned int line_number);
+void m_sub(stack_t **stack, unsigned int line_number);
+void m_div(stack_t **stack, unsigned int line_number);
+void m_mul(stack_t **stack, unsigned int line_number);
+void m_mod(stack_t **stack, unsigned int line_number);
+
+#endif /* __MONTY_H__ */
