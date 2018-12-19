@@ -17,3 +17,9 @@ void instruction_error(char *opcode, unsigned int line_number)
 	fprintf(stderr, "L%d: unknown instruction %s", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
+
+void sts_error(unsigned int line_number, char *opcode)
+{
+	fprintf(stderr, "L%d: can't %s, stack too short\n", line_number, opcode);
+	exit(EXIT_FAILURE);
+}
