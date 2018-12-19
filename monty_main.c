@@ -7,33 +7,29 @@ int main(int argc, char **argv)
 	char *tokens[2];
 	size_t len;
 	int char_count;
-/*	stack_t *head = NULL; */
+	stack_t *head = NULL;
+	instruction_t opcodes[] = {
+		{"push", push}, {NULL, NULL}
+	};
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
-	}
+		arg_error();
 	fd = fopen(argv[1], "r");
 	if (!fd)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
-	}
-	while ((char_count = getline(&line, &len, fd)) != -1)
+		fileopen_error(argv[1]);
+	while ((char_count = getline(&line, &len, fd)) != EOF)
 	{
 		line[char_count - 1] = '\0';
 		tokens[0] = strtok(line, " ");
-		printf("%s\n", tokens[0]);
+		printf("%s\n", tokens[0]); /* to remove, just a test printer */
+		tokens[1] = strtok(NULL, " ");
 		if (tokens[1])
+			printf("%s\n", tokens[1]); /* to remove, just a test printer */
+		if (strcmp(tokens[0], opcodes[0].opcode) == 0) /* jack - remove this when you create fn_finder */
 		{
-			tokens[1] = strtok(NULL, " ");
-			printf("%s\n", tokens[1]);
+			opcodes[0].f(&head, 50); /* 50 is arbitrary number, &head not sure if this is correct */
 		}
-/*		fn_finder(*head, tokens[0]); */
-	/*	if (!head->n)
-			head->n = atoi(tokens[1]);
-		line_number++; */
+		/*		fn_finder(*head, tokens[0]); */
 	}
 	return (EXIT_SUCCESS);
 }
