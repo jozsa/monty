@@ -21,8 +21,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-extern stack_t **stack;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -47,6 +45,8 @@ void pop_error(unsigned int line_number);
 void pint_error(unsigned int line_number);
 void push_error(unsigned int line_number);
 void div_error(unsigned int line_number);
+void pchar_range_error(unsigned int line_number);
+void pchar_stack_error(unsigned int line_number);
 void m_pall(stack_t **stack, unsigned int line_number);
 void m_push(stack_t **stack, unsigned int line_number);
 void m_pint(stack_t **stack, unsigned int line_number);
@@ -59,5 +59,6 @@ void m_div(stack_t **stack, unsigned int line_number);
 void m_mul(stack_t **stack, unsigned int line_number);
 void m_mod(stack_t **stack, unsigned int line_number);
 void m_free_stack(stack_t *stack);
+void m_pchar(stack_t **stack, unsigned int line_number);
 
 #endif /* __MONTY_H__ */

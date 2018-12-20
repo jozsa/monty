@@ -68,6 +68,11 @@ void m_nop(stack_t **stack, unsigned int line_number)
 	line_number = line_number;
 }
 
+/**
+ * m_free_stack - Frees the stack at the end of the program
+ * @stack: Stack to be freed
+ */
+
 void m_free_stack(stack_t *stack)
 {
 	stack_t *temp = stack;

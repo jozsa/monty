@@ -32,3 +32,20 @@ void m_pint(stack_t **stack, unsigned int line_number)
 		pint_error(line_number);
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * m_pchar - Prints ascii representation of integer at top of stack
+ * @stack: Pointer to the stack
+ * @line_number: line number
+ */
+
+void m_pchar(stack_t **stack, unsigned int line_number)
+{
+	line_number = line_number;
+	if (!stack)
+		pchar_stack_error(line_number);
+	if ((*stack)->n >= 0 && (*stack)->n <= 127)
+		printf("%c\n", (char)(*stack)->n);
+	else
+		pchar_range_error(line_number);
+}

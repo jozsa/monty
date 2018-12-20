@@ -32,7 +32,12 @@ int main(int argc, char **argv)
 		{
 			fn_finder(tokens[0], line_number, &stack);
 			if (strcmp(tokens[0], push) == 0)
-				stack->n = atoi(tokens[1]);
+			{
+				if (!tokens[1])
+					push_error(line_number);
+				else
+					stack->n = atoi(tokens[1]);
+			}
 		}
 		line_number++;
 	}
