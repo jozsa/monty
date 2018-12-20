@@ -67,3 +67,15 @@ void m_nop(stack_t **stack, unsigned int line_number)
 	stack = stack;
 	line_number = line_number;
 }
+
+void m_free_stack(stack_t *stack)
+{
+	stack_t *temp = stack;
+
+	while (stack != NULL)
+	{
+		stack = stack->next;
+		free(stack);
+	}
+	free(temp);
+}

@@ -58,5 +58,6 @@ void m_sub(stack_t **stack, unsigned int line_number);
 void m_div(stack_t **stack, unsigned int line_number);
 void m_mul(stack_t **stack, unsigned int line_number);
 void m_mod(stack_t **stack, unsigned int line_number);
+void m_free_stack(stack_t *stack);
 
 #endif /* __MONTY_H__ */
