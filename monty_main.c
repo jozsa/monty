@@ -3,16 +3,14 @@
 int main(int argc, char **argv)
 {
 	FILE *fd;
-	char *line = NULL;
+	char *line = NULL, *push = "push";
+	char *opcode = NULL;
 	char *tokens[2];
 	size_t len;
 	int char_count;
-	unsigned int line_number = 0;
+	unsigned int line_number = 1;
 	stack_t *stack = NULL;
-	stack_t *temp;
-	instruction_t opcodes[] = {
-		{"push", m_push}, {"nop", NULL}
-	};
+
 	if (argc != 2)
 		arg_error();
 	fd = fopen(argv[1], "r");
@@ -25,23 +23,14 @@ int main(int argc, char **argv)
 		tokens[1] = strtok(NULL, " ");
 		if (tokens[0])
 		{
-			printf("%s\n", tokens[0]);
-			if (strcmp(tokens[0], opcodes[0].opcode) == 0) /* jack - remove this when you create fn_finder */
-			{
-				opcodes[0].f(&stack, line_number); /* 50 is arbitrary number, &head not sure if this is correct */
-				printf("%d\n", stack->n);
+			fn_finder(tokens[0], line_number, &stack);
+			if (strcmp(tokens[0], push) == 0) /* added a char pointer to "push" so we can test if the function is push and go ahead and make stack->n tokens[1]. otherwise it segfaults/fucks up cuz we arent supposed to do anything with tokens[1] */
 				stack->n = atoi(tokens[1]);
-				temp = stack;
-				while (temp != NULL)
-				{
-					printf("%d\n", temp->n);
-					temp = temp->next;
-				}
-			}
-		/*		fn_finder(*head, tokens[0]); */
 		}
 		line_number++;
 	}
+	fclose(fd);
+	free(line);
 	return (EXIT_SUCCESS);
 
 }

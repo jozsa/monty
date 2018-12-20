@@ -23,7 +23,6 @@ void m_push(stack_t **stack, unsigned int line_number)
 	if ((*stack) != NULL)
 		(*stack)->prev = new;
 	*stack = new;
-	printf("%d\n", new->n);
 }
 
 /**

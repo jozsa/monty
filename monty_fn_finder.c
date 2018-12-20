@@ -20,7 +20,7 @@ void fn_finder(char *opcode, unsigned int line_number, stack_t **stack)
 		{NULL, NULL}
 	};
 
-	for (i = 0; i < (sizeof(ops) / sizeof(instruction_t *)); i++)
+	for (i = 0; ops[i].opcode; i++)
 	{
 		if (ops[i].opcode == NULL)
 			instruction_error(opcode, line_number);
