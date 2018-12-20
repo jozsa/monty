@@ -26,7 +26,7 @@ void fileopen_error(char *filename)
 
 void instruction_error(char *opcode, unsigned int line_number)
 {
-	fprintf(stderr, "L%d: unknown instruction %s", line_number, opcode);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
 
