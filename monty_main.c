@@ -1,7 +1,5 @@
 #include "monty.h"
 
-stack_t *stack = NULL;
-
 int main(int argc, char **argv)
 {
 	FILE *fd;
@@ -10,8 +8,10 @@ int main(int argc, char **argv)
 	size_t len;
 	int char_count;
 	unsigned int line_number = 0;
+	stack_t *stack = NULL;
+	stack_t *temp;
 	instruction_t opcodes[] = {
-		{"push", push}, {"nop", NULL}
+		{"push", m_push}, {"nop", NULL}
 	};
 	if (argc != 2)
 		arg_error();
@@ -29,12 +29,19 @@ int main(int argc, char **argv)
 			if (strcmp(tokens[0], opcodes[0].opcode) == 0) /* jack - remove this when you create fn_finder */
 			{
 				opcodes[0].f(&stack, line_number); /* 50 is arbitrary number, &head not sure if this is correct */
-				(stack->n = atoi(tokens[1]));
 				printf("%d\n", stack->n);
+				stack->n = atoi(tokens[1]);
+				temp = stack;
+				while (temp != NULL)
+				{
+					printf("%d\n", temp->n);
+					temp = temp->next;
+				}
 			}
 		/*		fn_finder(*head, tokens[0]); */
 		}
 		line_number++;
 	}
 	return (EXIT_SUCCESS);
+
 }

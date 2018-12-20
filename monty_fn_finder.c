@@ -6,7 +6,7 @@
  * @line_number: line number
  */
 
-void fn_finder(char *opcode, unsigned int line_number)
+void fn_finder(char *opcode, unsigned int line_number, stack_t **stack)
 {
 	unsigned int i;
 	instruction_t ops[] = {
@@ -25,6 +25,6 @@ void fn_finder(char *opcode, unsigned int line_number)
 		if (ops[i].opcode == NULL)
 			instruction_error(opcode, line_number);
 		if (strcmp(opcode, ops[i].opcode) == 0)
-			ops[i].f(&stack, line_number);
+			ops[i].f(stack, line_number);
 	}
 }

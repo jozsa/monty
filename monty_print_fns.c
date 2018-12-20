@@ -27,6 +27,7 @@ void m_pall(stack_t **stack, unsigned int line_number)
 void m_pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack)
-		pint_error(line_number);
+		printf("lol");
+		/* pint_error(line_number); */
 	printf("%d", (*stack)->n);
 }

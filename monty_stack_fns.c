@@ -8,17 +8,22 @@
 
 void m_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = malloc(sizeof(stack_t));
-	new->prev = NULL;
-	new->n = 0;
-	if (stack)
+	stack_t *new;
+
+	(void)line_number;
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
 	{
-		new->next = *stack;
-		new->next->prev = new;
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
-	else
-		new->next = NULL;
+	new->n = 0;
+	new->next = *stack;
+	new->prev = NULL;
+	if ((*stack) != NULL)
+		(*stack)->prev = new;
 	*stack = new;
+	printf("%d\n", new->n);
 }
 
 /**
@@ -31,7 +36,8 @@ void m_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 	if (stack == NULL)
-		pop_error(line_number);
+		printf("lol");
+	/*	pop_error(line_number); */
 	*stack = (*stack)->next;
 	free(temp);
 	(*stack)->prev = NULL;
