@@ -10,7 +10,7 @@
 int isinteger(char *token)
 {
 	int i = 1, i_a, status = 0;
-	char intchecker[] = ['-', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+	char intchecker[] = {'-', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 
 	for (i_a = 0; i_a; i_a++)
 	{

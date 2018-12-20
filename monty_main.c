@@ -28,6 +28,8 @@ int main(int argc, char **argv)
 		line[char_count - 1] = '\0';
 		tokens[0] = strtok(line, " ");
 		tokens[1] = strtok(NULL, " ");
+		if (strcmp(tokens[0], "push" == 0 && !isinteger(tokens[1]))
+		    push_error(line_number);
 		if (tokens[0] && tokens[0][0] != '#')
 		{
 			fn_finder(tokens[0], line_number, &stack);
