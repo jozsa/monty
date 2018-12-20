@@ -28,10 +28,10 @@ int main(int argc, char **argv)
 		line[char_count - 1] = '\0';
 		tokens[0] = strtok(line, " ");
 		tokens[1] = strtok(NULL, " ");
-		if (tokens[0])
+		if (tokens[0] && tokens[0][0] != '#')
 		{
 			fn_finder(tokens[0], line_number, &stack);
-			if (strcmp(tokens[0], push) == 0) /* added a char pointer to "push" so we can test if the function is push and go ahead and make stack->n tokens[1]. otherwise it segfaults/fucks up cuz we arent supposed to do anything with tokens[1] */
+			if (strcmp(tokens[0], push) == 0)
 				stack->n = atoi(tokens[1]);
 		}
 		line_number++;
