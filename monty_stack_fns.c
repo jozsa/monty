@@ -31,8 +31,8 @@ void m_push(stack_t **stack, unsigned int line_number)
 void m_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
-
-	if (stack == NULL)
+	
+	if (*stack == NULL)
 		pop_error(line_number);
 	*stack = (*stack)->next;
 	free(temp);
