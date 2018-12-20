@@ -11,7 +11,7 @@ void m_pall(stack_t **stack, unsigned int line_number)
 	stack_t *runner = *stack;
 
 	line_number = line_number;
-	if (!stack)
+	if (*stack == NULL)
 		return;
 	while (runner != NULL)
 	{
@@ -28,7 +28,7 @@ void m_pall(stack_t **stack, unsigned int line_number)
 
 void m_pint(stack_t **stack, unsigned int line_number)
 {
-	if (!stack)
+	if (*stack == NULL)
 		pint_error(line_number);
 	printf("%d\n", (*stack)->n);
 }
@@ -42,7 +42,7 @@ void m_pint(stack_t **stack, unsigned int line_number)
 void m_pchar(stack_t **stack, unsigned int line_number)
 {
 	line_number = line_number;
-	if (!stack)
+	if (*stack == NULL)
 		pchar_stack_error(line_number);
 	if ((*stack)->n >= 0 && (*stack)->n <= 127)
 		printf("%c\n", (char)(*stack)->n);

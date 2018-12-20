@@ -49,7 +49,7 @@ void m_swap(stack_t **stack, unsigned int line_number)
 {
 	int swapper;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "swap");
 	swapper = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;

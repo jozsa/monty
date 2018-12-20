@@ -10,7 +10,7 @@ void m_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "add");
 	(*stack)->next->n = (*stack)->n + (*stack)->next->n;
 	*stack = (*stack)->next;
@@ -27,7 +27,7 @@ void m_sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "sub");
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
 	*stack = (*stack)->next;
@@ -45,7 +45,7 @@ void m_mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "mul");
 	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
 	*stack = (*stack)->next;
@@ -62,7 +62,7 @@ void m_div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "div");
 	if ((*stack)->n != 0)
 	{
@@ -84,7 +84,7 @@ void m_mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack)->next)
+	if (*stack == NULL || !(*stack)->next)
 		sts_error(line_number, "mod");
 	if ((*stack)->n != 0)
 	{
