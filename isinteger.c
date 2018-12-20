@@ -4,32 +4,25 @@
  * isinteger - checks if a token is an integer
  * @token: token to check
  *
- * Return: 1 if integer, 0 if not 
+ * Return: 1 if integer, 0 if not
  */
 
 int isinteger(char *token)
 {
-	int i = 1, i_a, status = 0;
-	char intchecker[] = ['-', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+	int i = 0, status = 0;
+	char *intchecker = "1234567890", *c;
 
-	for (i_a = 0; i_a; i_a++)
+	if (token[i] == '-')
 	{
-		if (token[0] == intchecker[i_a])
-			status = 1;
+		status = 1;
+		i = 1;
 	}
-	if (status == 0)
-		return (status);
-	while (token[i])
+	for (i = i; token[i] != '\0'; i++)
 	{
-		status = 0;
-		for (i_a = 1; i_a; i_a++)
-		{
-			if (token[i] == intchecker[i_a])
-				status = 1;
-		}
-		if (status == 0)
+		c = strchr(intchecker, token[i]);
+		if (c == NULL)
 			return (status);
-		i++;
+		status = 1;
 	}
 	return (status);
 }
