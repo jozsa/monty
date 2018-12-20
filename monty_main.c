@@ -1,10 +1,17 @@
 #include "monty.h"
 
+/**
+ * main - Reads opcodes in monty files and executes the corresponding functions
+ * @argc: The number of arguments passed to the program (must be 2)
+ * @argv: The array of pointers to the arguments passed to the program
+ *
+ * Return: EXIT_SUCCESS upon completion of the program
+ */
+
 int main(int argc, char **argv)
 {
 	FILE *fd;
 	char *line = NULL, *push = "push";
-	char *opcode = NULL;
 	char *tokens[2];
 	size_t len;
 	int char_count;
@@ -15,7 +22,7 @@ int main(int argc, char **argv)
 		arg_error();
 	fd = fopen(argv[1], "r");
 	if (!fd)
-		fileopen_error(argv[1]); 
+		fileopen_error(argv[1]);
 	while ((char_count = getline(&line, &len, fd)) != EOF)
 	{
 		line[char_count - 1] = '\0';

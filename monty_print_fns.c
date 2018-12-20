@@ -9,6 +9,8 @@
 void m_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *runner = *stack;
+
+	line_number = line_number;
 	if (!stack)
 		return;
 	while (runner != NULL)

@@ -10,13 +10,10 @@ void m_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
-	(void)line_number;
+	line_number = line_number;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		alloc_error();
 	new->n = 0;
 	new->next = *stack;
 	new->prev = NULL;
@@ -34,9 +31,9 @@ void m_push(stack_t **stack, unsigned int line_number)
 void m_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
+
 	if (stack == NULL)
-		printf("lol");
-	/*	pop_error(line_number); */
+		pop_error(line_number);
 	*stack = (*stack)->next;
 	free(temp);
 	(*stack)->prev = NULL;
@@ -50,9 +47,11 @@ void m_pop(stack_t **stack, unsigned int line_number)
 
 void m_swap(stack_t **stack, unsigned int line_number)
 {
+	int swapper;
+
 	if (!(*stack)->next)
 		sts_error(line_number, "swap");
-	int swapper = (*stack)->n;
+	swapper = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = swapper;
 }
@@ -65,5 +64,6 @@ void m_swap(stack_t **stack, unsigned int line_number)
 
 void m_nop(stack_t **stack, unsigned int line_number)
 {
-	return;
+	stack = stack;
+	line_number = line_number;
 }

@@ -37,6 +37,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void fn_finder(char *opcode, unsigned int line_number, stack_t **stack);
 void arg_error(void);
 void fileopen_error(char *filename);
 void instruction_error(char *opcode, unsigned int line_number);

@@ -10,6 +10,7 @@ void arg_error(void)
 
 /**
  * fileopen_error - exits if file cannot be opened
+ * @filename: File that couldn't be opened
  */
 
 void fileopen_error(char *filename)
