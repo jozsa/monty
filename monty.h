@@ -45,6 +45,7 @@ void sts_error(unsigned int line_number, char *opcode);
 void pop_error(unsigned int line_number);
 void pint_error(unsigned int line_number);
 void push_error(unsigned int line_number);
+void div_error(unsigned int line_number);
 void m_pall(stack_t **stack, unsigned int line_number);
 void m_push(stack_t **stack, unsigned int line_number);
 void m_pint(stack_t **stack, unsigned int line_number);
