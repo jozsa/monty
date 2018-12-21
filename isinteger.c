@@ -21,7 +21,10 @@ int isinteger(char *token)
 	{
 		c = strchr(intchecker, token[i]);
 		if (c == NULL)
+		{
+			status = 0;
 			return (status);
+		}
 		status = 1;
 	}
 	return (status);
