@@ -34,6 +34,12 @@ void m_pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 		pop_error(line_number);
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+		return;
+	}
 	*stack = (*stack)->next;
 	free(temp);
 	(*stack)->prev = NULL;
