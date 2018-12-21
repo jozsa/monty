@@ -44,8 +44,32 @@ void m_pchar(stack_t **stack, unsigned int line_number)
 	line_number = line_number;
 	if (*stack == NULL)
 		pchar_stack_error(line_number);
-	if ((*stack)->n >= 0 && (*stack)->n <= 127)
+	if ((*stack)->n >= 0 && (*stack)->n <= 122)
 		printf("%c\n", (char)(*stack)->n);
 	else
 		pchar_range_error(line_number);
+}
+
+/**
+ * m_pstr - Prints a string starting at the top of the stack
+ * @stack: Pointer to the stack
+ * @line_number: Line number of the monty file
+ */
+
+void m_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *runner = *stack;
+
+	line_number = line_number;
+	if (*stack == NULL)
+	{
+		putchar('\n');
+		return;
+	}
+	while (runner != NULL && runner->n > 0 && runner->n < 123)
+	{
+		printf("%c", (char)runner->n);
+		runner = runner->next;
+	}
+	putchar('\n');
 }

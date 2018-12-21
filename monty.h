@@ -61,5 +61,6 @@ void m_mul(stack_t **stack, unsigned int line_number);
 void m_mod(stack_t **stack, unsigned int line_number);
 void m_free_stack(stack_t *stack);
 void m_pchar(stack_t **stack, unsigned int line_number);
+void m_pstr(stack_t **stack, unsigned int line_number);
 
 #endif /* __MONTY_H__ */

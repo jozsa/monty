@@ -15,7 +15,7 @@ void fn_finder(char *opcode, unsigned int line_number, stack_t **stack)
 		{"pop", m_pop}, {"swap", m_swap}, {"add", m_add},
 		{"nop", m_nop}, {"sub", m_sub}, {"div", m_div},
 		{"mul", m_mul}, {"mod", m_mod}, {"pchar", m_pchar},
-		{NULL, NULL}
+		{"pstr", m_pstr}, {NULL, NULL}
 	};
 
 	for (i = 0; ops[i].opcode; i++)
