@@ -99,6 +99,12 @@ never fail.
 If the first non-space character of a line is a #, the line
 will be treated as a comment, and will do nothing.   
 
+### KNOWN ISSUES/BUGS
+
+Currently, there is no way to rotate the stack in either direction.
+
+This version of the Monty interpreter cannot switch between stack and queue mode.
+
 ### Authors
 
 * [Jack Gindi](https://github.com/jmgindi)
