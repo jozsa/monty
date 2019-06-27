@@ -9,6 +9,8 @@ certain arguments. The Monty interpreter has built-in error
 handling and will print an error message to standard error
 on command failure.
 
+![an example run of monty](assets/monty_example.gif)
+
 ### Quick Start
 
 The monty interpreter can be compiled using
