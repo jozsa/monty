@@ -107,5 +107,5 @@ This version of the Monty interpreter cannot switch between stack and queue mode
 
 ### Authors
 
-* [Jack Gindi](https://github.com/jmgindi)
+* [Jack Gindi](https://github.com/jmgindi) - [Portfolio](https://jackgindi.com)
 * [Allison Weiner](https://github.com/josza)
